@@ -15,9 +15,24 @@ const PORT = process.env.PORT;
 
 const __dirname = path.resolve();
 
+// CORS configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://livechat-rose.vercel.app",
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+      // Allow requests with no origin (mobile apps, curl, etc.)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        callback(null, origin);
+      } else {
+        callback(null, allowedOrigins[0]);
+      }
+    },
     credentials: true, // allow frontend to send cookies
   })
 );
