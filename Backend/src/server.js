@@ -18,7 +18,7 @@ const __dirname = path.resolve();
 // CORS configuration
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://livechat-rose.vercel.app",
+  "https://livechat1-o99g.onrender.com",
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
