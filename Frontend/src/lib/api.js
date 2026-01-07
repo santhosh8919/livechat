@@ -19,6 +19,10 @@ export const getAuthUser = async () => {
     const res = await axiosInstance.get("/auth/me");
     return res.data;
   } catch (error) {
+    // 401 is expected when user is not logged in
+    if (error.response?.status === 401) {
+      return null;
+    }
     console.log("Error in getAuthUser:", error);
     return null;
   }
@@ -55,7 +59,9 @@ export async function getFriendRequests() {
 }
 
 export async function acceptFriendRequest(requestId) {
-  const response = await axiosInstance.put(`/users/friend-request/${requestId}/accept`);
+  const response = await axiosInstance.put(
+    `/users/friend-request/${requestId}/accept`
+  );
   return response.data;
 }
 

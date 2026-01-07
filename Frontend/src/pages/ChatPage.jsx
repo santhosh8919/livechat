@@ -22,10 +22,15 @@ const ChatPage = () => {
   const [chatClient, setChatClient] = useState(null);
   const [channel, setChannel] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const { authUser } = useAuthUser();
+  const { authUser, isLoading: authLoading } = useAuthUser();
 
-  const { data: tokenData } = useQuery({
+  const {
+    data: tokenData,
+    isLoading: tokenLoading,
+    error: tokenError,
+  } = useQuery({
     queryKey: ["streamToken"],
     queryFn: getStreamToken,
     enabled: !!authUser,
@@ -33,7 +38,22 @@ const ChatPage = () => {
 
   useEffect(() => {
     const initChat = async () => {
-      if (!tokenData?.token || !authUser) return;
+      // Wait for auth and token to be ready
+      if (authLoading || tokenLoading) return;
+
+      if (!authUser) {
+        setError("Please log in to access chat");
+        setLoading(false);
+        return;
+      }
+
+      if (!tokenData?.token) {
+        setError(
+          "Failed to get chat token. Please check your Stream API configuration."
+        );
+        setLoading(false);
+        return;
+      }
 
       try {
         const client = StreamChat.getInstance(STREAM_API_KEY);
@@ -57,9 +77,11 @@ const ChatPage = () => {
 
         setChatClient(client);
         setChannel(newChannel);
+        setError(null);
         setLoading(false);
       } catch (error) {
         console.error("Error initializing chat:", error);
+        setError(error.message || "Failed to initialize chat");
         setLoading(false);
       }
     };
@@ -71,9 +93,9 @@ const ChatPage = () => {
         chatClient.disconnectUser();
       }
     };
-  }, [tokenData, authUser, friendId]);
+  }, [tokenData, authUser, friendId, authLoading, tokenLoading]);
 
-  if (loading) {
+  if (loading || authLoading || tokenLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <span className="loading loading-spinner loading-lg"></span>
@@ -81,12 +103,14 @@ const ChatPage = () => {
     );
   }
 
-  if (!chatClient || !channel) {
+  if (error || !chatClient || !channel) {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
           <p className="text-lg">Unable to load chat</p>
-          <p className="text-sm opacity-70">Please try again later</p>
+          <p className="text-sm opacity-70">
+            {error || "Please try again later"}
+          </p>
         </div>
       </div>
     );

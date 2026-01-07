@@ -1,7 +1,7 @@
 services:
   # Backend API
   - type: web
-    name: livelink-backend
+    name: livechat-backend
     env: node
     rootDir: Backend
     buildCommand: npm install
@@ -12,28 +12,28 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        sync: false
+        sync: false # Add in Render dashboard
       - key: STEAM_API_KEY
-        sync: false
+        value: 93yh7mp8uy5c
       - key: STEAM_API_SECRET
-        sync: false
+        sync: false # Add in Render dashboard (keep secret)
       - key: JWT_SECRET_KEY
-        sync: false
+        sync: false # Add in Render dashboard (keep secret)
       - key: CLIENT_URL
-        sync: false
+        sync: false # Add after frontend deploys
 
   # Frontend Static Site
   - type: web
-    name: livelink-frontend
+    name: livechat-frontend
     env: static
     rootDir: Frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        sync: false
+        sync: false # Add after backend deploys: https://livechat-backend.onrender.com/api
       - key: VITE_STREAM_API_KEY
-        sync: false
+        value: 93yh7mp8uy5c
     routes:
       - type: rewrite
         source: /*
