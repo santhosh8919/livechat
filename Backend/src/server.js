@@ -22,17 +22,11 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
+console.log("Allowed CORS origins:", allowedOrigins);
+
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (mobile apps, curl, etc.)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        callback(null, origin);
-      } else {
-        callback(null, allowedOrigins[0]);
-      }
-    },
+    origin: allowedOrigins,
     credentials: true, // allow frontend to send cookies
   })
 );
