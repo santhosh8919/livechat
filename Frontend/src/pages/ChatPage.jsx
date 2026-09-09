@@ -6,7 +6,7 @@ import {
   Channel,
   ChannelHeader,
   MessageList,
-  MessageInput,
+  MessageComposer,
   Thread,
   Window,
 } from "stream-chat-react";
@@ -123,7 +123,7 @@ const ChatPage = () => {
           <Window>
             <ChannelHeader />
             <MessageList />
-            <MessageInput />
+            <MessageComposer />
           </Window>
           <Thread />
         </Channel>
