@@ -21,20 +21,3 @@ services:
         sync: false # Add in Render dashboard (keep secret)
       - key: CLIENT_URL
         sync: false # Add after frontend deploys
-
-  # Frontend Static Site
-  - type: web
-    name: livechat-frontend
-    env: static
-    rootDir: Frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    envVars:
-      - key: VITE_API_URL
-        sync: false # Add after backend deploys: https://livechat-backend.onrender.com/api
-      - key: VITE_STREAM_API_KEY
-        value: 93yh7mp8uy5c
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
