@@ -1,4 +1,4 @@
-import { useState } from "react";
+nimport { useState } from "react";
 import { ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
 
@@ -57,7 +57,7 @@ const LoginPage = () => {
                     </label>
                     <input
                       type="email"
-                      placeholder="ramu@gmail.com"
+                      placeholder="santhosh@gmail.com"
                       className="input input-bordered w-full"
                       value={loginData.email}
                       onChange={(e) =>
