@@ -24,6 +24,7 @@ const configuredClientUrls = (process.env.CLIENT_URL || "")
 const allowedOrigins = new Set([
   "http://localhost:5173",
   "https://livechat1-o99g.onrender.com",
+  "https://livechat-rose.vercel.app",
   "https://livechat-ozvie66bs-santhosh-mudavaths-projects-9da694fd.vercel.app",
   ...configuredClientUrls,
 ]);
