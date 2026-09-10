@@ -20,4 +20,4 @@ services:
       - key: JWT_SECRET_KEY
         sync: false # Add in Render dashboard (keep secret)
       - key: CLIENT_URL
-        sync: false # Add after frontend deploys
+        value: https://livechat-ozvie66bs-santhosh-mudavaths-projects-9da694fd.vercel.app

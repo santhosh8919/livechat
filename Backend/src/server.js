@@ -21,18 +21,24 @@ const configuredClientUrls = (process.env.CLIENT_URL || "")
   .map((url) => url.trim().replace(/\/$/, ""))
   .filter(Boolean);
 
-const allowedOrigins = [
+const allowedOrigins = new Set([
   "http://localhost:5173",
   "https://livechat1-o99g.onrender.com",
   "https://livechat-ozvie66bs-santhosh-mudavaths-projects-9da694fd.vercel.app",
   ...configuredClientUrls,
-];
+]);
 
-console.log("Allowed CORS origins:", allowedOrigins);
+console.log("Allowed CORS origins:", [...allowedOrigins]);
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.has(origin.replace(/\/$/, ""))) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`CORS origin not allowed: ${origin}`));
+    },
     credentials: true, // allow frontend to send cookies
   })
 );
