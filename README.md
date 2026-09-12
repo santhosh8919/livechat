@@ -78,7 +78,7 @@ This project demonstrates a real‑time chat system with a modern web interface 
 ## 🌐 Deployment
 
 The application backend and frontend are deployed on Render:
-🔗 **[https://livechat1‑o99g.onrender.com/](https://livechat1‑o99g.onrender.com/)**
+🔗 **[https://streammm-1.onrender.com/](https://streammm-1.onrender.com/)**
 
 
 ---
