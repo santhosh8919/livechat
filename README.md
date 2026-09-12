@@ -1,52 +1,68 @@
-# LiveChat — Real‑Time Chat Application
+# Hope-I — AI Healthcare Platform
 
-**LiveChat** is a full‑stack web application that enables real‑time messaging between users — similar to modern customer support chat systems or messaging apps. It supports instant communication, user authentication, and persistent chat history.
+**Hope-I** is a full-stack healthcare web application that connects **Patients, Doctors, and Admins** through a secure platform. It includes role-based authentication, healthcare management features, and an AI-powered chatbot to assist users with health-related queries.
 
 ---
 
 ## 🚀 Project Overview
 
-This project demonstrates a real‑time chat system with a modern web interface and scalable backend. It’s designed to showcase core full‑stack engineering skills including real‑time socket communication, RESTful APIs, and deployment.
+This project demonstrates a modern healthcare platform with separate dashboards for patients, doctors, and administrators. It showcases full-stack development skills including authentication, REST APIs, database integration, and responsive UI design.
 
 ---
 
 ## 📌 Key Features
 
-* **Real‑time messaging** — instantaneous delivery of messages between users.
-* **User authentication** — secure login and registration (JWT / sessions).
-* **Multiple chat rooms** — users can join different chat channels.
-* **Message history** — messages are saved and loaded on reconnect.
-* **Responsive UI** — built with React for a modern user experience.
-* **Deployment** — backend and frontend deployed on Render (link below).
+- **Role-based authentication** for Patients, Doctors, and Admins.
+- **Patient dashboard** for accessing healthcare services.
+- **Doctor dashboard** for managing patient interactions.
+- **Admin dashboard** for platform management.
+- **AI healthcare chatbot** for basic health assistance.
+- **Secure login system** with protected routes.
+- **Responsive UI** for mobile and desktop devices.
 
 ---
 
 ## 🛠 Tech Stack
 
-* **Frontend:** React (Vite) with modern hooks and component structure.
-* **Backend:** Node.js with Express.
-* **Real‑Time:** Socket.IO for bi‑directional communication.
-* **Database:** (e.g., MongoDB / Firebase) — *add the one you used*.
-* **Deployment:** Render (Frontend & Backend).
+- **Frontend:** React (Vite)
+- **Backend:** Node.js with Express
+- **Database:** MongoDB
+- **Authentication:** JWT
+- **Deployment:** Render
 
 ---
 
 ## 📁 Architecture
 
-* **Frontend:**
-  React app handling UI, chat components, socket connection.
-* **Backend:**
-  Node/Express API with socket server for messaging and user auth.
+- **Frontend:** React application with role-based dashboards.
+- **Backend:** Express API handling authentication, healthcare data, and chatbot integration.
+- **Database:** MongoDB for storing users and application data.
+
+---
+
+## 🔑 Demo Credentials
+
+### Patient
+- **Email:** `anjali.mehta@example.com`
+- **Password:** `user123`
+
+### Doctor
+- **Email:** `priya.sharma@medcare.com`
+- **Password:** `doctor123`
+
+### Admin
+- **Email:** `ravi.verma@adminpanel.com`
+- **Password:** `vadmin123`
 
 ---
 
 ## 🧑‍💻 Getting Started (Local Development)
 
-1. **Clone the repo**
+1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/santhosh8919/livechat.git
-   cd livechat
+   git clone https://github.com/your-username/hope-i.git
+   cd hope-i
    ```
 
 2. **Install dependencies**
@@ -58,16 +74,17 @@ This project demonstrates a real‑time chat system with a modern web interface 
    npm install
    ```
 
-3. **Set environment variables**
-   Add `.env` with:
+3. **Configure environment variables**
 
-   ```
+   Create a `.env` file in the backend folder.
+
+   ```env
    PORT=5000
    JWT_SECRET=your_jwt_secret
-   DB_URI=mongodb+srv://<your‑uri>
+   DB_URI=mongodb+srv://<your-uri>
    ```
 
-4. **Run the app**
+4. **Run the application**
 
    ```bash
    npm run dev
@@ -75,36 +92,23 @@ This project demonstrates a real‑time chat system with a modern web interface 
 
 ---
 
-## 🌐 Deployment
+## 🌐 Live Demo
 
-The application backend and frontend are deployed on Render:
-🔗 **[https://streammm-1.onrender.com/](https://streammm-1.onrender.com/)**
+The application is deployed on Render.
 
+🔗 **https://hope-i-bot-1.onrender.com/**
 
 ---
 
 ## 📌 Screenshots
 
-
-
-<img width="1904" height="923" alt="image" src="https://github.com/user-attachments/assets/78705c90-5399-44a0-ad6e-2c5f6133e11d" />
-<img width="1890" height="919" alt="image" src="https://github.com/user-attachments/assets/0b4fd8cc-ab14-4d6a-8ea9-2da1c2e001bd" />
-
-<img width="1895" height="946" alt="image" src="https://github.com/user-attachments/assets/7b5c2436-354a-44c1-a0cf-9b7bc05c2688" />
-<img width="1884" height="989" alt="image" src="https://github.com/user-attachments/assets/71bf21f7-62f0-49dc-8375-6feb6eadafcb" />
-
----
-
-
+Add your project screenshots here.
 
 ---
 
 ## 📫 Contact
-santhosh mudavath
-mudavathsanthosh883@gmail.com
 
+**Santhosh Mudavath**
 
-
-
-
-
+- Email: **mudavathsanthosh883@gmail.com**
+- GitHub: **https://github.com/santhosh8919**
